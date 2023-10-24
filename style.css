@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --hue: 195;
+  --bg-header: hsl(var(--hue), 91%, 25%);
+  --bg-footer: hsl(var(--hue), 46%, 40%);
+  --title-color: hsl(var(--hue), 6%, 13%);
+  --text-color: hsl(var(--hue), 5%, 7%);
+
+}
+
+html, body, input {
+  font-family: 'Mulish', sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+/* --------------------- HEADER ---------------------- */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+  
+  padding: 1.2rem 2.8rem;
+  background-color: var(--bg-header);
+}
+
+header img {
+  border-radius: 50%;
+  width: 4rem;
+}
+
+form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  font-size: 1.6rem;
+  width: 100%;
+  border: 0;
+  border-radius: .4rem;
+  padding: 1.2rem 1.4rem;
+  color: #fff;
+  background-color: var(--bg-footer);
+}
+
+.input-wrapper input::placeholder {
+  color: #fff;
+}
+
+/* --------------------- MAIN ---------------------- */
+
+main {
+  /* display: none; */
+}
+
+main h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin: .8rem 0 3.2rem;
+}
+
+.buttons img {
+  background-color: var(--bg-header);
+  padding: .8rem;
+  border-radius: 50%;
+}
+
+.buttons img:hover {
+  cursor: pointer;
+  background-color: var(--bg-footer);
+}
+
+.main-content {
+  padding: 3.2rem 2.2rem;
+}
+
+main > img {
+  width: 100%;
+  
+}
+
+.content {
+  margin: 0 auto;
+}
+
+/* --------------------- ASIDE ---------------------- */
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding: 3.2rem 2.2rem;
+  margin: 0 auto;
+  max-width: 38.4rem;
+}
+
+aside h2 {
+  font-size: 2.4rem;
+}
+
+figure {
+  display: flex;
+  gap: 1.6rem;
+}
+
+figure h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+figure p {
+  font-size: 1.4rem;
+
+}
+
+figure img {
+  width: 151px;
+  height: 84px;
+  border-radius: .4rem;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  transition: .5s;
+}
+
+
+/* --------------------- FOOTER ---------------------- */
+
+footer {
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  padding: 1.6rem;
+  background-color: var(--bg-footer);
+
+}
+
+
+/* --------------------- DESKTOP ---------------------- */
+
+@media (min-width: 1024px) {
+  main {
+    /* width: 60rem; */
+    max-width: 100rem;
+    flex: 1;
+  }
+  
+  main > img {
+    display: block;
+    border-radius: .4rem;
+    /* margin-bottom: 3.2rem; */
+  }
+
+  
+  .content {
+    display: flex;
+    /* display: grid;
+    grid-template-columns: 1fr max-content;
+    justify-items: center; */
+    gap: 3.4rem;
+    padding: 4.4rem 3.2rem;
+    justify-content: center;
+    /* width: max-content; */
+  }
+
+  .main-content {
+    display: grid;
+    align-items: center;
+    gap: 3.2rem;
+    margin-top: 3.2rem;
+    grid-template-areas: 
+    "h1 button"
+    "p p";
+    padding: 0;
+  }
+
+  .main-content h1 {
+    grid-area: h1;
+    display: inline;
+    width: max-content;
+  }
+
+  .main-content .buttons {
+    grid-area: button;
+    justify-self: end;
+    margin: 0;
+  }
+
+  .main-content .text-content {
+    grid-area: p;
+  }
+
+  aside {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* --------------------- ANIMATION ---------------------- */
+
+figure {
+  --delay: .2s;
+  animation: move 1.2s var(--delay) backwards;
+  /* animation: appear 4s var(--delay) backwards; */
+  
+}
+
+.buttons img:active {
+  animation: appear 0.1s  backwards;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(1000%);
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+figure img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1);
+  cursor: pointer;
+}
